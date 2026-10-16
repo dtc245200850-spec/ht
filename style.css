@@ -1,0 +1,68 @@
+/* 1. Thiết lập màu nền cho toàn bộ trang web (background-color) */
+body {
+    background-color: #f0f4f8; /* Màu nền nhẹ dịu mắt */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center; /* Căn giữa tiêu đề h1 và p mô tả */
+}
+
+/* Định dạng tiêu đề và đoạn văn mô tả */
+h1 {
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #4a5568;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* 2. Định dạng khối div quan trọng với ảnh nền (background-image) & căn giữa nội dung */
+.featured-box {
+    /* Thiết lập ảnh nền từ Unsplash */
+    background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;       /* Phủ kín toàn bộ khối div */
+    background-position: center;   /* Căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+
+    /* Căn giữa nội dung bên trong khối div */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Kích thước & khoảng cách */
+    max-width: 600px;
+    height: 250px;
+    margin: 0 auto; /* Căn giữa khối div ra giữa màn hình */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    /* Màu chữ và hiệu ứng lớp phủ tối giúp chữ dễ đọc hơn trên ảnh nền */
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Thêm lớp phủ bán trong suốt (Overlay) để tăng độ tương phản cho chữ */
+.featured-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Lớp phủ đen trong suốt 40% */
+    z-index: 1;
+}
+
+.featured-box h2,
+.featured-box p {
+    position: relative;
+    z-index: 2; /* Đảm bảo chữ nổi lên trên lớp phủ */
+    margin: 5px 0;
+}
